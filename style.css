@@ -1,0 +1,242 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:30px 30px;
+    z-index:-1;
+}
+
+.top-bar{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+}
+
+.contact-btn{
+    padding:10px 20px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,0.4);
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    background:white;
+    color:black;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:clamp(32px, 8vw, 70px);
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#dcdcdc;
+    text-shadow:0 0 15px rgba(255,255,255,0.5);
+}
+
+.hero p{
+    color:#aaa;
+    margin-bottom:40px;
+    font-size:16px;
+}
+
+.dropdown{
+    position:relative;
+    width:100%;
+    max-width:300px;
+}
+
+.dropdown-btn{
+    width:100%;
+    padding:14px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.4);
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    transition:0.3s ease;
+    font-size:16px;
+}
+
+.dropdown-btn:hover{
+    background:white;
+    color:black;
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+.dropdown-content{
+    position:absolute;
+    top:65px;
+    left:50%;
+    transform:translateX(-50%) scale(0.95);
+    background:#111;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:12px;
+    padding:10px;
+    width:100%;
+    opacity:0;
+    pointer-events:none;
+    transition:0.25s ease;
+}
+
+.dropdown.show .dropdown-content{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(-50%) scale(1);
+}
+
+.dropdown-content a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:white;
+    border-radius:8px;
+    transition:0.2s;
+    text-align:center;
+    font-size:14px;
+}
+
+.dropdown-content a:hover{
+    background:white;
+    color:black;
+}
+
+.contact-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+.discord-username{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.discord-username span{
+    color:#aaa;
+    font-size:14px;
+    display:block;
+    margin-bottom:5px;
+}
+
+.discord-username strong{
+    font-size:18px;
+    letter-spacing:1px;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+.contact-box{
+    width:100%;
+    max-width:600px;
+    background:#111;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:10px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 0 20px rgba(255,255,255,0.15);
+    gap:20px;
+}
+
+.contact-info{
+    display:flex;
+    gap:30px;
+    font-size:15px;
+    flex-wrap:wrap;
+}
+
+.label{
+    color:#aaa;
+}
+
+.value{
+    color:white;
+    font-weight:500;
+}
+
+.copy-btn{
+    background:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    color:black;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.copy-btn:hover{
+    opacity:0.8;
+}
+
+.notification{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#111;
+    color:white;
+    padding:14px 20px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 0 20px rgba(255,255,255,0.15);
+    opacity:0;
+    transform:translateY(20px);
+    transition:0.3s ease;
+    pointer-events:none;
+    font-size:14px;
+}
+
+.notification.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media (max-width:600px){
+    .contact-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .contact-info{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .copy-btn{
+        width:100%;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ducats website</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="top-bar">
+    <a href="#contact">
+        <button class="contact-btn">Contact</button>
+    </a>
+</div>
+
+<section class="hero">
+    <h1>ducats <span>website</span></h1>
+    <p>Welcome to my corner of the internet!</p>
+
+    <div class="dropdown" id="dropdown">
+        <button class="dropdown-btn" onclick="toggleDropdown()">random stuff</button>
+        <div class="dropdown-content">
+            <a href="index.html" target="_blank">soon</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="discord-username">
+        <span>my discord</span>
+    </div>
+
+    <div class="contact-box">
+        <div class="contact-info">
+            <div><span class="label">discord:</span> <span class="value">duzat</span></div>
+        </div>
+        <button class="copy-btn" onclick="copyIP()">Copy</button>
+    </div>
+</section>
+
+<div class="notification" id="notification">Copied!</div>
+
+<script src="script.js"></script>
+</body>
+</html>
