@@ -64,9 +64,9 @@ function hit() {
 
   let result = "Bad";
 
-  if (diff < 120) result = "Perfect!";
-  else if (diff < 280) result = "Nice!";
-  else result = "Bad";
+  if (diff < 120) result = "300";
+  else if (diff < 280) result = "100";
+  else result = "50";
 
   showText(result, best.x, best.y);
 
