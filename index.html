@@ -1,1 +1,61 @@
-<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>ducats website</title><link href=style.css rel=stylesheet><div class=top-bar><a href=#contact><button class=contact-btn>Contact</button></a></div><section class=hero><h1>ducats <span>website</span></h1><p>Welcome to my corner of the internet!<div class=dropdown id=dropdown><button class=dropdown-btn onclick=toggleDropdown()>random stuff</button><div class=dropdown-content><a href=projects/osu/osu.html target=_blank>osu copy</a> <a href=index.html target=_blank>soon</a></div></div></section><section class=contact-section id=contact><div class=discord-username><span>my discord</span></div><div class=contact-box><div class=contact-info><div><span class=label>discord:</span> <span class=value>duzat</span></div></div><button class=copy-btn onclick=copyIP()>Copy</button></div></section><div class=notification id=notification>Copied!</div><script src=script.js></script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>ducat's website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+
+<div id="banner"><img src="backround.gif" alt="banner"></div>
+
+<div id="nav">
+  <a href="index.html" class="on">Home</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="about.html">About me</a>
+  <a href="webrings.html">Webrings</a>
+</div>
+
+<div id="ticker">
+  <div id="ticker-inner">
+    <span>welcome! &nbsp;·&nbsp; check the about page to learn more about me! &nbsp;·&nbsp; come back soon for updates &nbsp;·&nbsp; still under construction &nbsp;·&nbsp;</span>
+    <span>welcome! &nbsp;·&nbsp; check the about page to learn more about me! &nbsp;·&nbsp; come back soon for updates &nbsp;·&nbsp; still under construction &nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<div id="body">
+  <div id="side">
+    <h3>Updates</h3>
+    <div class="box">
+      new site, created 2026.<br>
+      <b style="color:#fff;">25.04.2026</b><br>
+      - more coming soon<br>
+    </div>
+  </div>
+
+  <div id="main">
+    <h2>hello there :D</h2>
+    <p>it seems that you have stubled onto my website. you can contact me <a href="contact.html">here</a></p>
+    <p>still working on this check back later for updates</p>
+    <p>website button thingy ↓</p>
+   <textarea id="w3review" name="w3review" rows="4" cols="50"><a href="https://ducat.lol/"><img src="ducatlol.png"></a></textarea>
+  </div>
+
+</div>
+</div>
+
+<script>
+  var inner = document.getElementById('ticker-inner');
+  var halfWidth = inner.scrollWidth / 2;
+  var pos = 780;
+  function tick() {
+    pos -= 1;
+    if (pos <= -halfWidth) pos = 0;
+    inner.style.transform = 'translateX(' + pos + 'px)';
+    requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+</body>
+</html>
