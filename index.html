@@ -1,70 +1,116 @@
-<!--
-     _                 _    ___  _  _   
-  __| |_   _  ___ __ _| |_ / _ \| || |  
- / _` | | | |/ __/ _` | __| | | | | || |_ 
-| (_| | |_| | (_| (_| | |_| |_| |__   _|
- \__,_|\__,_|\___\__,_|\__|\___/   |_|  
- 
--->
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ducat</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="page">
-    <header class="head">
-      <a class="wordmark" href="/">ducat<span class="dot">.</span></a>
-    </header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .card-wrap {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        z-index: 10;
+        pointer-events: none;
+      }
 
-    <main class="grid">
-      <div class="content">
-        <h1>hi, im ducat</h1>
+      .card {
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: min(100%, 300px);
+        padding: 28px 24px;
+        background: rgba(14, 10, 12, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        font-family: "Poppins", "Trebuchet MS", system-ui, sans-serif;
+      }
 
-        <p class="intro">
-          i play minecraft anarchy servers
-        </p>
+      .card h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #ef4444;
+      }
 
-        <section class="block">
-          <h2 class="label">links</h2>
-          <ul class="rows">
-            <li>
-              <a class="row" href="https://github.com/ducat04/" target="_blank" rel="noopener">
-                <span class="row-name">github</span>
-                <span class="row-dots" aria-hidden="true"></span>
-                <span class="row-value">github.com/ducat04</span>
-              </a>
-            </li>
-            <li>
-              <a class="row" href="https://discord.com/users/1489070438515478559" target="_blank" rel="noopener">
-                <span class="row-name">discord</span>
-                <span class="row-dots" aria-hidden="true"></span>
-                <span class="row-value">discord.com/users/1489070438515478559</span>
-              </a>
-            </li>
-            <li>
-              <a class="row" href="https://www.youtube.com/@ducat04" target="_blank" rel="noopener">
-                <span class="row-name">youtube</span>
-                <span class="row-dots" aria-hidden="true"></span>
-                <span class="row-value">youtube.com/@ducat04</span>
-              </a>
-            </li>
-          </ul>
-        </section>
+      .card .btn {
+        padding: 10px 28px;
+        background: #ef4444;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 0;
+        transition: background-color 0.15s ease;
+      }
 
-        <section class="block altf4-block">
-          <h2 class="label">altf4</h2>
-          <a class="altf4" href="https://discord.gg/Pp3qKDjcMg" target="_blank" rel="noopener">
-            join altf4 <span class="altf4-url">→ discord.gg/pp3qkdjcmg</span>
-          </a>
-        </section>
+      .card .btn:hover { background: #dc2626; }
+      .card .btn:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene" aria-hidden="true"></div>
+
+    <div class="card-wrap">
+      <div class="card">
+        <h1>ducat.lol</h1>
+        <a class="btn" href="https://discord.gg/Ne45Y69GPQ" target="_blank" rel="noopener noreferrer">click me</a>
       </div>
-    </main>
-  </div>
-</body>
+    </div>
+
+    <script>
+      const scene = document.querySelector("#scene");
+      const HEART_COUNT = 24;
+      const HEART_FILE = "heart.svg";
+      const random = (min, max) => Math.random() * (max - min) + min;
+
+      for (let i = 0; i < HEART_COUNT; i++) {
+        const heart = document.createElement("img");
+        heart.className = "heart";
+        heart.src = HEART_FILE;
+        heart.alt = "";
+        heart.draggable = false;
+        heart.style.left = `${random(0, 100)}%`;
+        heart.style.setProperty("--size", `${random(10, 30)}px`);
+        heart.style.setProperty("--duration", `${random(24, 48)}s`);
+        heart.style.setProperty("--delay", `${random(-48, 0)}s`);
+        heart.style.setProperty("--sway", `${random(-35, 35)}px`);
+        heart.style.setProperty("--tilt", `${random(-18, 18)}deg`);
+        heart.style.setProperty("--opacity", random(0.45, 0.95));
+        scene.appendChild(heart);
+      }
+
+      document.addEventListener("pointerdown", event => {
+        if (event.target.closest(".card")) return;
+        const count = Math.floor(random(8, 13));
+        for (let i = 0; i < count; i++) {
+          const angle = 2 * Math.PI * i / count + random(-0.22, 0.22);
+          const distance = random(38, 105);
+          const heart = document.createElement("img");
+          heart.className = "burst-heart";
+          heart.src = HEART_FILE;
+          heart.alt = "";
+          heart.draggable = false;
+          heart.style.left = `${event.clientX}px`;
+          heart.style.top = `${event.clientY}px`;
+          heart.style.setProperty("--size", `${random(9, 21)}px`);
+          heart.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+          heart.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+          heart.style.setProperty("--rotation", `${random(-100, 100)}deg`);
+          heart.style.setProperty("--life", `${random(650, 1050)}ms`);
+          scene.appendChild(heart);
+          heart.addEventListener("animationend", () => heart.remove(), { once: true });
+        }
+      });
+
+      document.addEventListener("selectstart", e => e.preventDefault());
+      document.addEventListener("dragstart", e => e.preventDefault());
+    </script>
+  </body>
 </html>
